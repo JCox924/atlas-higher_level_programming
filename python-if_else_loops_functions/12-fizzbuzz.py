@@ -10,4 +10,4 @@ def fizzbuzz():
 			results.append("Buzz")
 		else:
 			results.append(str(num))
-	print(" ".join(results))
+	print(" ".join(results), end=' ')
