@@ -4,4 +4,4 @@ a = 1
 b = 2
 if __name__ == "__main__":
 	result = add(a, b)
-	print(f"{a} + {b} = {result}\n")
+	print("{} + {} = {}\n".format(a, b, result))
