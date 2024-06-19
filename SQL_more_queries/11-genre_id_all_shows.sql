@@ -1,3 +1,6 @@
+-- Specifes database to use
+USE hbtn_0d_tvshows;
+
 -- List all shows with their genres from the database hbtn_0d_tvshows
 -- Each record should display: tv_shows.title - tv_show_genres.genre_id
 -- Sorted in ascending order by tv_shows.title and tv_show_genres.genre_id
