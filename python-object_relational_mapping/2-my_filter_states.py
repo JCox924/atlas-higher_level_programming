@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+This script connects to a MySQL database and retrieves all values in the 'states'
+table where the name matches the argument provided
+"""
 import sys
 import MySQLdb
+
 
 if __name__ == "__main__":
     # Retrieve the arguments
