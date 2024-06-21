@@ -1,9 +1,17 @@
 #!/usr/bin/python3
+"""
+This module lists all states name
+starting with N from the database hbtn_0e_0_usa.
+"""
 import MySQLdb
 import sys
 
-def list_cities(username, password, database):
-    # Connect to the MySQL server
+
+if __name__ == '__main__':
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -11,29 +19,16 @@ def list_cities(username, password, database):
         passwd=password,
         db=database
     )
-
-    # Create a cursor object to interact with the database
     cursor = db.cursor()
-
-    # Execute the query to get all cities sorted by id
-    query = "SELECT * FROM cities ORDER BY id ASC"
+    query = """
+    SELECT cities.id, cities.name, states.name
+    FROM cities
+    INNER JOIN states ON states.id = cities.state_id
+    ORDER BY cities.id ASC
+    """
     cursor.execute(query)
-
-    # Fetch all the rows
     rows = cursor.fetchall()
-
-    # Print the results
     for row in rows:
         print(row)
-
-    # Close the cursor and connection
     cursor.close()
     db.close()
-
-if __name__ == "__main__":
-    # The script should only execute when run directly, not when imported
-    if len(sys.argv) == 4:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        list_cities(username, password, database)

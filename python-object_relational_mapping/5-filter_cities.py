@@ -1,9 +1,18 @@
 #!/usr/bin/python3
+"""
+This module lists all states with name
+starting with N from database hbtn_0e_0_usa.
+"""
 import MySQLdb
 import sys
 
-def list_cities_by_state(username, password, database, state_name):
-    # Connect to the MySQL server
+
+if __name__ == '__main__':
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -11,36 +20,18 @@ def list_cities_by_state(username, password, database, state_name):
         passwd=password,
         db=database
     )
-
-    # Create a cursor object to interact with the database
     cursor = db.cursor()
-
-    # Execute the query to get all cities of the given state, sorted by id
     query = """
-    SELECT cities.id, cities.name 
-    FROM cities 
-    JOIN states ON cities.state_id = states.id 
-    WHERE states.name = %s 
-    ORDER BY cities.id ASC
+    SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ')
+    FROM cities
+    INNER JOIN states ON cities.state_id = states.id
+    WHERE states.name = %s
     """
     cursor.execute(query, (state_name,))
-
-    # Fetch all the rows
-    rows = cursor.fetchall()
-
-    # Print the results
-    for row in rows:
-        print(row)
-
-    # Close the cursor and connection
+    result = cursor.fetchone()[0]
+    if result is not None:
+        print(result)
+    else:
+        print("")
     cursor.close()
     db.close()
-
-if __name__ == "__main__":
-    # The script should only execute when run directly, not when imported
-    if len(sys.argv) == 5:
-        username = sys.argv[1]
-        password = sys.argv[2]
-        database = sys.argv[3]
-        state_name = sys.argv[4]
-        list_cities_by_state(username, password, database, state_name)
