@@ -3,7 +3,7 @@
 const args = process.argv.slice(2);
 const n = parseInt(args[0], 10);
 
-function factorial(num) {
+function factorial (num) {
   if (isNaN(num) || num <= 1) {
     return 1;
   }
