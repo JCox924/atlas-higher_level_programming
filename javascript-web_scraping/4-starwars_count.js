@@ -12,9 +12,11 @@ request.get(apiUrl, (error, response, body) => {
     let count = 0;
 
     data.results.forEach((film) => {
-      if (film.characters.includes(`https://swapi-api.hbtn.io/api/people/${characterId}/`)) {
-        count++;
-      }
+      film.characters.forEach((characterUrl) => {
+        if (characterUrl.includes(`/people/${characterId}/`)) {
+          count++;
+        }
+      });
     });
 
     console.log(count);
