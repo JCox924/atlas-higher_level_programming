@@ -13,7 +13,7 @@ request.get(apiUrl, (error, response, body) => {
   const filmData = JSON.parse(body);
   const characterUrls = filmData.characters;
 
-  function printCharacterNames(urls, index = 0) {
+  function printCharacterNames (urls, index = 0) {
     if (index >= urls.length) {
       return;
     }
