@@ -9,11 +9,7 @@ This project explores using the JQuery API
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
-## Install requests
-```shell
-sudo npm install request --global
-export NODE_PATH=/usr/lib/node_modules
-```
+
 ## Clone this repo
 ```shell
 git clone https://github.com/JCox924/atlas-higher_level_programming
