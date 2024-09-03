@@ -2,7 +2,13 @@
 
 def uppercase(str):
     """
+    uppercase(str: string)
     :param str: string
-    :return: upper case string
+    :return: string in caps
     """
-    print("".join(chr(ord(c) - 32) if ord('a') <= ord(c) <= ord('z') else c for c in str), end="\n")
+    for char in str:
+        if ord('a') <= ord(char) <= ord('z'):
+            print("{:c}".format(ord(char) - 32), end="")
+        else:
+            print("{:c}".format(ord(char)), end="")
+    print()

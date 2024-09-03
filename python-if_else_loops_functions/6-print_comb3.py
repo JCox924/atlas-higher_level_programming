@@ -1,2 +1,7 @@
 #!/usr/bin/python3
-print(", ".join(f"{i:01d}{j:01d}" for i in range(10) for j in range(i + 1, 10)), end="\n")
+for i in range(10):
+    for j in range(i + 1, 10):
+        if i < 8 or (i == 8 and j < 9):
+            print("{:02d}, ".format(i * 10 + j), end="")
+        else:
+            print("{:02d}".format(i * 10 + j))
