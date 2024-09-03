@@ -6,9 +6,10 @@ def uppercase(str):
     :param str: string
     :return: string in caps
     """
+    result = ""
     for char in str:
         if ord('a') <= ord(char) <= ord('z'):
-            print("{:c}".format(ord(char) - 32), end="")
+            result += "{:c}".format(ord(char) - 32)
         else:
-            print("{:c}".format(ord(char)), end="")
-    print()
+            result += "{:c}".format(ord(char))
+    print(result)
