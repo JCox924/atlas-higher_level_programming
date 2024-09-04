@@ -6,7 +6,6 @@ def list_division(my_list_1, my_list_2, list_length):
             num1 = my_list_1[i]
             num2 = my_list_2[i]
 
-
             result.append(float(num1) / float(num2))
         except IndexError:
             print("out of range")
