@@ -22,5 +22,4 @@ def list_division(my_list_1, my_list_2, list_length):
             while len(result) < list_length:
                 result.append(0)
 
-    print(result)
     return result
