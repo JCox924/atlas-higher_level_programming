@@ -6,7 +6,7 @@ def list_division(my_list_1, my_list_2, list_length):
             num1 = my_list_1[i]
             num2 = my_list_2[i]
 
-            division_result = float(num1) / float(num2)
+            division_result = num1 / num2
 
             result.append(int(division_result) if division_result == 0 else division_result)
         except IndexError:
