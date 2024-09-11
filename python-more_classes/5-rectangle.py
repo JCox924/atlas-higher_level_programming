@@ -3,11 +3,13 @@
 This module defines a class Rectangle.
 """
 
+
 class Rectangle:
     """
     Class that defines a rectangle by:
     - Private instance attributes: width and height
-    - Public instance methods: area, perimeter, __str__, __repr__, and __del__
+    - Public instance methods: area, perimeter,
+        __str__, __repr__, and __del__
     """
 
     def __init__(self, width=0, height=0):
@@ -77,7 +79,8 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns the string representation of the rectangle using the character `#`.
+        Returns the string representation
+        of the rectangle using the character `#`.
         If width or height is 0, returns an empty string.
         """
         if self.__width == 0 or self.__height == 0:
@@ -86,7 +89,8 @@ class Rectangle:
 
     def __repr__(self):
         """
-        Returns a string representation of the rectangle to be able to recreate
+        Returns a string representation
+        of the rectangle to be able to recreate
         a new instance by using eval().
         """
         return f"Rectangle({self.__width}, {self.__height})"
