@@ -8,11 +8,13 @@ class Rectangle:
     """
     Class that defines a rectangle by:
     - Private instance attributes: width and height
-    - Public class attribute: number_of_instances
+    - Public class attributes: number_of_instances and print_symbol
     - Public instance methods: area, perimeter, __str__, __repr__, and __del__
     """
 
+    # Public class attributes
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -83,12 +85,13 @@ class Rectangle:
 
     def __str__(self):
         """
-        Returns the string representation of the rectangle using the character `#`.
+        Returns the string representation of the rectangle using the character(s) stored in print_symbol.
         If width or height is 0, returns an empty string.
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join(["#" * self.__width for _ in range(self.__height)])
+        rect_lines = [str(self.print_symbol) * self.__width for _ in range(self.__height)]
+        return "\n".join(rect_lines)
 
     def __repr__(self):
         """
@@ -100,4 +103,4 @@ class Rectangle:
     def __del__(self):
         """Prints a message when an instance of Rectangle is deleted and decrements the instance count."""
         print("Bye rectangle...")
-        Rectangle.number_of_instances -= 1
+        Rectangle.number_of_instances -= 1  # Decrement the class attribute
