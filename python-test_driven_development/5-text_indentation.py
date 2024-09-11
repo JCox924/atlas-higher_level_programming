@@ -24,7 +24,9 @@ def text_indentation(text):
         new_text += char
         if char in characters:
             new_text += "\n\n"
-    
-    lines = new_text.split('\n')
+
+    new_text = new_text.strip()
+
+    lines = new_text.splitlines()
     for line in lines:
-        print(line.strip(), end='\n' if line.strip() else '')
+        print(line.strip())
