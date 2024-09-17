@@ -1,6 +1,8 @@
 """
 This module tests the MyList class.
 
+>>> from 1_my_list import MyList
+
 >>> my_list = MyList()  # Create an instance of MyList
 >>> my_list.append(3)
 >>> my_list.append(1)
@@ -9,7 +11,7 @@ This module tests the MyList class.
 >>> my_list.print_sorted()  # Should print [1, 2, 3, 5]
 [1, 2, 3, 5]
 
->>> print(my_list)  # Ensure original list is not modified
+>>> print(my_list)
 [3, 1, 5, 2]
 
 >>> empty_list = MyList()  # Test with an empty list
