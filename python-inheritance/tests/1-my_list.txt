@@ -1,17 +1,25 @@
-my_list = MyList()
+"""
+This module tests the MyList class.
 
-my_list.append(3)
-my_list.append(1)
-my_list.append(5)
-my_list.append(2)
+>>> my_list = MyList()  # Create an instance of MyList
+>>> my_list.append(3)
+>>> my_list.append(1)
+>>> my_list.append(5)
+>>> my_list.append(2)
+>>> my_list.print_sorted()  # Should print [1, 2, 3, 5]
+[1, 2, 3, 5]
 
-my_list.print_sorted()
+>>> print(my_list)  # Ensure original list is not modified
+[3, 1, 5, 2]
 
-print(my_list)  # Should print [3, 1, 5, 2]
+>>> empty_list = MyList()  # Test with an empty list
+>>> empty_list.print_sorted()  # Should print []
+[]
 
-empty_list = MyList()
-empty_list.print_sorted()  # Should print []
+>>> mixed_list = MyList([-1, 0, 1, 3, -5, 2])  # Test with negative and positive integers
+>>> mixed_list.print_sorted()  # Should print [-5, -1, 0, 1, 2, 3]
+[-5, -1, 0, 1, 2, 3]
 
-mixed_list = MyList([-1, 0, 1, 3, -5, 2])
-mixed_list.print_sorted()  # Should print [-5, -1, 0, 1, 2, 3]
-print(mixed_list)  # Should print [-1, 0, 1, 3, -5, 2]
+>>> print(mixed_list)  # Ensure original list is not modified
+[-1, 0, 1, 3, -5, 2]
+"""
