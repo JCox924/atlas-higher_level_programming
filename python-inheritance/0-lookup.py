@@ -2,7 +2,8 @@
 
 def lookup(obj):
     """
-    Lookup
+    Function that lists the attributes and methods of an object
+
     :param obj: Object
     :return: list of attr and methods of an object
     """

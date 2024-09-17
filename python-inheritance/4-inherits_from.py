@@ -4,8 +4,8 @@ def inherits_from(obj, a_class) -> bool:
     """
     inherits_from
 
-    :param obj: object instance
-    :param a_class: class instance
+    :param obj: object
+    :param a_class: class
     :return: True if object inherits from a_class
     """
 

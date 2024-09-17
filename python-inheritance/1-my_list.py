@@ -4,7 +4,7 @@ class MyList(list):
     """
     A subclass of list with a method to
     print the list sorted in
-    ascending order
+    ascending order.
     """
 
     def print_sorted(self):
