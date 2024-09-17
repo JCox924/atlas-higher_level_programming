@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Module contains function lookup()"""
+
 
 def lookup(obj):
     """
