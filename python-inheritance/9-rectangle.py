@@ -49,4 +49,3 @@ class Rectangle(BaseGeometry):
         """
 
         return f"[Rectangle] {self.__width}/{self.__height}"
-
