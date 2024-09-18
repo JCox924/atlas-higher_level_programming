@@ -1,6 +1,8 @@
 """
 This is a test for the BaseGeometry class.
 
+>>> from 7_base_geometry import BaseGeometry
+
 >>> bg = BaseGeometry()
 
 # Test that area() raises the correct exception
