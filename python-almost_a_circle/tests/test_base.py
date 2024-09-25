@@ -13,7 +13,7 @@ class TestBase(unittest.TestCase):
     def test_id_auto_assign(self):
         b1 = Base()
         b2 = Base()
-        self.assertEqual(b1.id, b2.id)
+        self.assertEqual(b1.id + 1, b2.id)
 
     def test_id_manual(self):
         b = Base(89)
