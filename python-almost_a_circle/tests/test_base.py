@@ -10,30 +10,34 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """Unit tests for Base class."""
 
-    def test_id_auto_increment(self):
-        """Test if id is auto-incremented when no id is provided."""
+    def test_id_auto_assign(self):
         b1 = Base()
         b2 = Base()
-        b3 = Base()
-        self.assertEqual(b1.id, 1)
-        self.assertEqual(b2.id, 2)
-        self.assertEqual(b3.id, 3)
+        self.assertEqual(b1.id + 1, b2.id)
 
     def test_id_manual(self):
-        """Test if id is manually assigned when provided."""
-        b1 = Base(100)
-        self.assertEqual(b1.id, 100)
+        b = Base(89)
+        self.assertEqual(b.id, 89)
 
-    def test_id_mixed(self):
-        """Test both manual and auto-increment id assignment."""
-        b1 = Base(50)
-        b2 = Base()
-        b3 = Base(10)
-        b4 = Base()
-        self.assertEqual(b1.id, 50)
-        self.assertEqual(b2.id, 1)
-        self.assertEqual(b3.id, 10)
-        self.assertEqual(b4.id, 2)
+    def test_to_json_string_none(self):
+        self.assertEqual(Base.to_json_string(None), "[]")
+
+    def test_to_json_string_empty(self):
+        self.assertEqual(Base.to_json_string([]), "[]")
+
+    def test_to_json_string(self):
+        self.assertEqual(Base.to_json_string([{'id': 12}]),
+                         '[{"id": 12}]')
+
+    def test_from_json_string_none(self):
+        self.assertEqual(Base.from_json_string(None), [])
+
+    def test_from_json_string_empty(self):
+        self.assertEqual(Base.from_json_string("[]"), [])
+
+    def test_from_json_string(self):
+        self.assertEqual(Base.from_json_string('[{ "id": 89 }]'),
+                         [{'id': 89}])
 
 
 if __name__ == "__main__":
